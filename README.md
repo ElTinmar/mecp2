@@ -1,4 +1,4 @@
-# mecp2_paper
+# mecp2
 
 Analysis code and figures for *Local circuit connectivity enhances visual decoding and
 visuomotor behavior* (Privat, Hansen, Pietri et al.).
@@ -23,8 +23,8 @@ corrected) for responses across stimulus levels.
 ## Quick start
 
 ```bash
-git clone https://github.com/ElTinmar/mecp2_paper.git
-cd mecp2_paper
+git clone https://github.com/ElTinmar/mecp2.git
+cd mecp2
 conda env create -f environment.yml
 conda activate mecp2
 python download_data.py            # downloads, verifies and extracts the data into data/
@@ -151,7 +151,7 @@ To use your own data, keep the same folder and file name patterns:
 ## Repository layout
 
 ```
-mecp2_paper/
+mecp2/
 ├── run_all.py              runs every figure (MATLAB and Python)
 ├── download_data.py        downloads and verifies the data
 ├── environment.yml         Python environment (conda-forge)
