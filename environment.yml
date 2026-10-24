@@ -1,0 +1,13 @@
+name: mecp2
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - statsmodels
+  - matplotlib
+  - seaborn
+  - pingouin
+  - ipython

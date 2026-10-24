@@ -1,0 +1,36 @@
+WT: 9 fish, 721.3333 +- 59.0019 cells per fish
+MeCP2: 10 fish, 721.6 +- 37.3146 cells per fish
+ 
+Frequency of Ca events
+WT: 0.0038442 +- 0.00059591
+MeCP2: 0.017567 +- 0.0027641
+bilateral ranksum test: 4.33e-05
+ 
+Duration of Ca events
+WT: 0.52442 +- 0.050294
+MeCP2: 0.31389 +- 0.0056349
+bilateral ranksum test: 2.165e-05
+ 
+JSD
+WT: 0.11686 +- 0.019222
+MeCP2: 0.061659 +- 0.0067913
+bilateral ranksum test: 0.0056723
+ 
+Correlation vs distance, bilateral ranksum test per distance bin:
+  Columns 1 through 7
+
+    0.0015    0.0030    0.0535    0.8421    0.2110    0.3562    0.4470
+
+  Column 8
+
+    0.1564
+
+Holm-corrected: 
+  Columns 1 through 7
+
+    0.0116    0.0209    0.3209    1.0000    0.8441    1.0000    1.0000
+
+  Column 8
+
+    0.7820
+

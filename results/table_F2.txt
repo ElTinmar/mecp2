@@ -1,0 +1,115 @@
+WT: 7 fish, 612.2857 +- 11.2688 cells per fish
+MeCP2: 10 fish, 552 +- 5.2726 cells per fish
+ 
+# of responsive cells at least one stim type: 
+WT: ------------------------------------
+7 fish, 48.2857 +- 11.5113 cells per fish 
+Total number of cells: 338
+MeCP2: ---------------------------------
+10 fish, 122 +- 14.1241 cells per fish 
+Total number of cells: 1220
+
+% responsive cells:
+Local p-values, ranksum (plotted contrasts): 0.00010284   0.0067873    0.087824     0.02499   0.0046277   0.0012341   0.0030852  0.00041135
+    Holm-corrected: 0.00082271    0.020362    0.087824    0.049979    0.018511   0.0074044    0.015426   0.0028795
+Global p-values, mixed-design ANOVA (within effects GG-corrected): 
+    MeCP2/WT: 0.0040507
+    Contrast: 2.5159e-07
+    Interaction: 0.0035639
+Within-fish ANOVA table: 
+Fish in ANOVA: 7 WT, 10 MeCP2; Greenhouse-Geisser epsilon: 0.4792
+                        SumSq     DF     MeanSq      F         pValue       pValueGG      pValueHF      pValueLB      pEta2      gEta2  
+                        ______    ___    ______    ______    __________    __________    __________    __________    _______    ________
+
+    (Intercept)         1422.9      1    1422.9     45.72    6.3965e-06    6.3965e-06    6.3965e-06    6.3965e-06        NaN         NaN
+    genotype             357.4      1     357.4    11.483     0.0040507     0.0040507     0.0040507     0.0040507     0.4336     0.37325
+    Error               466.85     15    31.123                                                                          NaN         NaN
+    (Intercept):stim    129.19      7    18.455    14.539    4.1164e-13    2.5159e-07    4.7098e-09     0.0016974     0.4922     0.17713
+    genotype:stim       43.214      7    6.1735    4.8636     8.843e-05     0.0035639     0.0011705       0.04345    0.24485    0.067171
+    Error(stim)         133.28    105    1.2693                                                                          NaN         NaN
+
+Integral DFF:
+Local p-values, ranksum (plotted contrasts): 0.099234     0.22954     0.13307     0.16125   0.0067873  0.00041135  0.00041135     0.13307
+    Holm-corrected: 0.49617     0.53229     0.53229     0.53229    0.040724   0.0032908   0.0032908     0.53229
+Global p-values, mixed-design ANOVA (within effects GG-corrected): 
+    MeCP2/WT: 0.0020906
+    Contrast: 8.336e-13
+    Interaction: 0.003371
+Within-fish ANOVA table: 
+Fish in ANOVA: 5 WT, 10 MeCP2; excluded (missing levels): WT #[3  4], MeCP2 #[]; Greenhouse-Geisser epsilon: 0.6918
+                        SumSq     DF    MeanSq       F         pValue       pValueGG      pValueHF      pValueLB      pEta2      gEta2 
+                        ______    __    _______    ______    __________    __________    __________    __________    _______    _______
+
+    (Intercept)         682.46     1     682.46     215.1    1.8216e-09    1.8216e-09    1.8216e-09    1.8216e-09        NaN        NaN
+    genotype            46.508     1     46.508    14.658     0.0020906     0.0020906     0.0020906     0.0020906    0.52998    0.36742
+    Error               41.246    13     3.1728                                                                          NaN        NaN
+    (Intercept):stim    68.219     7     9.7455    22.843    1.4052e-17     8.336e-13    1.4052e-17     0.0003599     0.6373    0.46004
+    genotype:stim       12.048     7     1.7211    4.0341    0.00068525      0.003371    0.00068525      0.065829    0.23683    0.13079
+    Error(stim)         38.824    91    0.42664                                                                          NaN        NaN
+
+Peak response probability:
+Local p-values, ranksum (plotted contrasts): 0.027972    0.018511  0.00020568   0.0019539  0.00041135  0.00041135   0.0096668  0.00020568
+    Holm-corrected: 0.037022    0.037022   0.0016454   0.0078157   0.0024681   0.0024681       0.029   0.0016454
+Global p-values, mixed-design ANOVA (within effects GG-corrected): 
+    MeCP2/WT: 0.0006688
+    Contrast: 4.555e-05
+    Interaction: 0.038494
+Within-fish ANOVA table: 
+Fish in ANOVA: 5 WT, 10 MeCP2; excluded (missing levels): WT #[3  4], MeCP2 #[]; Greenhouse-Geisser epsilon: 0.3607
+                         SumSq      DF     MeanSq        F         pValue       pValueGG      pValueHF      pValueLB      pEta2      gEta2 
+                        ________    __    _________    ______    __________    __________    __________    __________    _______    _______
+
+    (Intercept)            2.664     1        2.664    164.52    9.3613e-09    9.3613e-09    9.3613e-09    9.3613e-09        NaN        NaN
+    genotype             0.31897     1      0.31897    19.699     0.0006688     0.0006688     0.0006688     0.0006688    0.60243    0.45544
+    Error                 0.2105    13     0.016192                                                                          NaN        NaN
+    (Intercept):stim     0.15637     7     0.022339    11.896    1.1184e-10     4.555e-05    6.6221e-06     0.0043158    0.47783    0.29079
+    genotype:stim       0.043675     7    0.0062393    3.3226     0.0033965      0.038494      0.026593      0.091406    0.20356    0.10275
+    Error(stim)          0.17088    91    0.0018778                                                                          NaN        NaN
+
+Response duration:
+Local p-values, ranksum (plotted contrasts): 0.59407     0.13307     0.26985      0.5362     0.60088    0.070239    0.013575   0.0046277
+    Holm-corrected: 1     0.66536           1           1           1     0.42143    0.095023    0.037022
+Global p-values, mixed-design ANOVA (within effects GG-corrected): 
+    MeCP2/WT: 0.011972
+    Contrast: 0.00011923
+    Interaction: 0.13899
+Within-fish ANOVA table: 
+Fish in ANOVA: 5 WT, 10 MeCP2; excluded (missing levels): WT #[3  4], MeCP2 #[]; Greenhouse-Geisser epsilon: 0.5960
+                        SumSq     DF    MeanSq       F         pValue       pValueGG      pValueHF      pValueLB      pEta2      gEta2  
+                        ______    __    _______    ______    __________    __________    __________    __________    _______    ________
+
+    (Intercept)         224.58     1     224.58    282.09    3.3966e-10    3.3966e-10    3.3966e-10    3.3966e-10        NaN         NaN
+    genotype            6.7818     1     6.7818    8.5184      0.011972      0.011972      0.011972      0.011972    0.39586     0.16303
+    Error                10.35    13    0.79614                                                                          NaN         NaN
+    (Intercept):stim     12.98     7     1.8543    6.8965    1.4073e-06    0.00011923    3.6469e-06      0.020941    0.34662     0.27156
+    genotype:stim       3.3943     7    0.48491    1.8035       0.09602       0.13899       0.10386       0.20227    0.12183    0.088831
+    Error(stim)         24.467    91    0.26887                                                                          NaN         NaN
+
+Decoder:
+Chance level (95th percentile of the binomial distribution): 17.5%
+Mixed-design ANOVA, genotype x ensemble size (within effects GG-corrected):
+    MeCP2/WT: 0.0050924
+    Ensemble size: 8.1972e-11
+    Interaction: 0.0017856
+Fish in ANOVA: 7 WT, 10 MeCP2; Greenhouse-Geisser epsilon: 0.4166
+                         SumSq      DF      MeanSq        F         pValue       pValueGG      pValueHF      pValueLB      pEta2      gEta2 
+                        ________    __    __________    ______    __________    __________    __________    __________    _______    _______
+
+    (Intercept)           3.6314     1        3.6314    666.53    7.5939e-14    7.5939e-14    7.5939e-14    7.5939e-14        NaN        NaN
+    genotype             0.05851     1       0.05851    10.739     0.0050924     0.0050924     0.0050924     0.0050924    0.41724     0.3417
+    Error               0.081722    15     0.0054481                                                                          NaN        NaN
+    (Intercept):stim     0.15967     4      0.039918    77.262    5.6113e-23    8.1972e-11    8.9755e-12    2.6507e-07    0.83742    0.58618
+    genotype:stim       0.018798     4     0.0046996    9.0962     8.224e-06     0.0017856     0.0011612     0.0086853    0.37749    0.14293
+    Error(stim)            0.031    60    0.00051666                                                                          NaN        NaN
+
+Accuracy (%), mean +- SEM across fish, ensemble sizes [5 25 100 300 500]:
+    WT:    15.50 +- 1.00   19.10 +- 0.87   23.71 +- 1.25   28.36 +- 1.73   31.65 +- 1.77   
+    MeCP2: 13.65 +- 0.35   16.76 +- 0.71   18.73 +- 0.89   20.37 +- 1.55   22.15 +- 2.07   
+ 
+Post-hoc: bilateral ranksum test per ensemble size, across fish (repetitions averaged per fish):
+p-values: 
+    0.2295    0.0519    0.0031    0.0097    0.0136
+
+Holm-corrected: 
+    0.2295    0.1039    0.0154    0.0387    0.0407
+

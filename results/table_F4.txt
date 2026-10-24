@@ -1,0 +1,47 @@
+J-turn frequency, ipsilateral (n = 40 mutant, 38 wild type)
+Mixed-design ANOVA, Greenhouse-Geisser epsilon: 0.5500
+                  SumSq    DF  MeanSq     F    pValue  pValueGG   pEta2   gEta2
+term                                                                           
+genotype          1.319     1   1.319 8.054   0.00582   0.00582 0.09582 0.02412
+Error             12.44    76  0.1637                                          
+(Intercept):stim  6.954    17  0.4091 12.92 4.484e-34 8.579e-20  0.1453  0.1153
+genotype:stim    0.9701    17 0.05706 1.802   0.02324   0.06164 0.02316 0.01786
+Error(stim)       40.91  1292 0.03166                                          
+
+Post-hoc tests (Mann-Whitney U, Holm corrected):
+ UV_Intensity Mecp2_Mean_Hz WT_Mean_Hz  U_Statistic      Raw_p Holm_Corrected_p
+         0.01         0.046      0.021        856.0 2.3975e-01       1.0000e+00
+         0.02         0.055      0.058        709.5 5.7577e-01       1.0000e+00
+         0.03         0.062      0.081        714.0 6.2849e-01       1.0000e+00
+         0.04         0.054      0.047        766.5 9.4690e-01       1.0000e+00
+         0.05         0.062      0.103        534.5 1.6509e-02       2.4764e-01
+         0.06         0.091      0.212        540.5 2.3632e-02       2.9402e-01
+         0.07         0.116      0.235        528.5 1.8212e-02       2.5497e-01
+         0.08         0.114      0.265        451.5 1.5402e-03       2.6183e-02
+         0.09         0.118      0.256        440.5 1.0706e-03       1.9271e-02
+         0.10         0.164      0.256        536.5 2.2617e-02       2.9402e-01
+         0.15         0.218      0.295        568.0 5.2134e-02       5.2134e-01
+         0.20         0.177      0.297        497.5 8.0299e-03       1.2848e-01
+         0.25         0.245      0.244        697.0 5.2513e-01       1.0000e+00
+         0.30         0.198      0.271        627.0 1.7936e-01       1.0000e+00
+         0.40         0.205      0.229        717.5 6.7083e-01       1.0000e+00
+         0.50         0.145      0.222        542.0 2.6513e-02       2.9402e-01
+         0.75         0.146      0.179        640.5 2.2454e-01       1.0000e+00
+         1.00         0.109      0.160        630.0 1.7970e-01       1.0000e+00
+
+Bootstrapped sigmoid (ipsi) / linear (contra) fits:
+mecp2-mutant EC50: 0.0874 [95% CI: 0.0675, 0.1755]
+wild type EC50: 0.0540 [95% CI: 0.0491, 0.0606]
+EC50 difference (mutant - wild type): 0.0334 [95% CI: 0.0124, 0.1221]
+Empirical p-value: 0.0010
+mecp2-mutant contra slope: 0.0034 [95% CI: -0.0124, 0.0189]
+wild type contra slope: -0.0017 [95% CI: -0.0148, 0.0114]
+mecp2-mutant ipsi r2: 0.8700 [95% CI: 0.6749, 0.9591]
+wild type ipsi r2: 0.8838 [95% CI: 0.7885, 0.9443]
+mecp2-mutant contra r2: 0.0380 [95% CI: 0.0001, 0.2863]
+wild type contra r2: 0.0315 [95% CI: 0.0001, 0.2990]
+mecp2-mutant ipsi rmse: 0.0247 [95% CI: 0.0138, 0.0413]
+wild type ipsi rmse: 0.0334 [95% CI: 0.0216, 0.0477]
+mecp2-mutant contra rmse: 0.0131 [95% CI: 0.0087, 0.0187]
+wild type contra rmse: 0.0108 [95% CI: 0.0070, 0.0155]
+
