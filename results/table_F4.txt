@@ -5,6 +5,18 @@ Rotifers eaten after 10 min (%, mean ± SD across chambers, SD with ddof=0 as in
     MeCP2_2lux: 8.28 ± 4.78 (n = 15 chambers)
     MeCP2_30lux: 22.94 ± 10.96 (n = 16 chambers)
 
+Two-way ANOVA, rotifers eaten at 10 min (%), genotype x illuminance, between chambers (Type III SS):
+                  term  SumSq  DF      F   pValue    pEta2
+              genotype  10.13   1 0.1104   0.7409 0.001933
+           illuminance  765.6   1  8.345 0.005459   0.1277
+genotype x illuminance  874.4   1   9.53 0.003119   0.1432
+                 Error   5229  57                         
+Post-hoc (Mann-Whitney U, Holm corrected over the 4 comparisons):
+    2 lux: wild type vs mecp2-mutant: U=181.0, p=0.004795, Holm p=0.01438
+    30 lux: wild type vs mecp2-mutant: U=69.0, p=0.04591, Holm p=0.09183
+    wild type: 2 vs 30 lux: U=134.0, p=0.3837, Holm p=0.3837
+    mecp2-mutant: 2 vs 30 lux: U=26.0, p=0.0002191, Holm p=0.0008764
+
 Cluster-based permutation tests (Welch t, two-sided, p = (r+1)/(N+1)):
     2 lux: wild type vs mecp2-mutant: 3.45-3.47 min, p=0.2488; 3.84-4.16 min, p=0.1658; 4.38-4.71 min, p=0.1648; 5.00-10.00 min, p=0.0160
     30 lux: wild type vs mecp2-mutant: no cluster

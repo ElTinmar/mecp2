@@ -3,6 +3,7 @@ import numpy as np
 from matplotlib.axes import Axes
 
 from load_rotifers_F4 import FPS
+from rotifer_anova_F4 import rotifer_anova_F4
 from rotifer_stats_F4 import ALPHA, COMPARISONS, Cluster
 from style_F4 import COLORS, label
 
@@ -27,7 +28,9 @@ def panel_AD_F4(data: dict[str, np.ndarray], ci: dict[str, np.ndarray],
     print('Rotifers eaten after 10 min (%, mean ± SD across chambers, SD with ddof=0 as in the original analysis)')
     for k, e in eaten.items():
         print(f'    {k}: {e.mean():.2f} ± {e.std():.2f} (n = {e.size} chambers)')
-    print('\nCluster-based permutation tests (Welch t, two-sided, p = (r+1)/(N+1)):')
+    print()
+    rotifer_anova_F4(eaten)
+    print('Cluster-based permutation tests (Welch t, two-sided, p = (r+1)/(N+1)):')
     for k, cs in found.items():
         print(f'    {k}: ' + ('; '.join(f'{minutes(s):.2f}-{minutes(e):.2f} min, p={p:.4f}' for s, e, p in cs) or 'no cluster'))
     print()
