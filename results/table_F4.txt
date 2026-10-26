@@ -1,3 +1,16 @@
+Rotifers per chamber after adaptation: 31.3 ± 6.5 (mean ± SD)
+Rotifers eaten after 10 min (%, mean ± SD across chambers, SD with ddof=0 as in the original analysis)
+    WT_2lux: 16.67 ± 8.10 (n = 15 chambers)
+    WT_30lux: 16.18 ± 11.50 (n = 15 chambers)
+    MeCP2_2lux: 8.28 ± 4.78 (n = 15 chambers)
+    MeCP2_30lux: 22.94 ± 10.96 (n = 16 chambers)
+
+Cluster-based permutation tests (Welch t, two-sided, p = (r+1)/(N+1)):
+    2 lux: wild type vs mecp2-mutant: 3.45-3.47 min, p=0.2488; 3.84-4.16 min, p=0.1658; 4.38-4.71 min, p=0.1648; 5.00-10.00 min, p=0.0160
+    30 lux: wild type vs mecp2-mutant: no cluster
+    wild type: 2 vs 30 lux: no cluster
+    mecp2-mutant: 2 vs 30 lux: 2.91-2.93 min, p=0.2458; 2.93-2.97 min, p=0.2438; 3.01-10.00 min, p=0.0030
+
 J-turn frequency, ipsilateral (n = 40 mutant, 38 wild type)
 Mixed-design ANOVA, Greenhouse-Geisser epsilon: 0.5500
                   SumSq    DF  MeanSq     F    pValue  pValueGG   pEta2   gEta2
