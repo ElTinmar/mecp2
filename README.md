@@ -11,11 +11,12 @@ The code compares wild-type and *mecp2*-mutant zebrafish larvae:
   contrast from population activity.
 - **Figure 3:** tectal responses to small prey-like spots at four azimuths, and decoding of
   azimuth. Supplementary figure: example responses and decoding error.
-- **Figure 4 (E) and Supplementary Figure 2:** J-turns towards virtual prey of increasing UV
-  intensity in a closed-loop virtual reality assay, and sensitivity (EC50) from bootstrapped
-  sigmoid fits.
+- **Figure 4:** rotifer consumption by groups of 5 larvae at 2 and 30 lux (A–D, cluster-based
+  permutation tests), and J-turns towards virtual prey of increasing UV intensity in a
+  closed-loop virtual reality assay (E). **Supplementary Figure 2:** sensitivity (EC50) from
+  bootstrapped sigmoid fits.
 
-Figures 1–3 are produced in MATLAB, Figure 4 in Python. Statistics treat the larva as the
+Figures 1–3 are produced in MATLAB, Figure 4 in Python. Statistics treat the larva (in the rotifer assay, the chamber of 5 larvae) as the
 independent unit: per-larva values are compared with Wilcoxon rank-sum tests, or with a
 mixed-design ANOVA (genotype between larvae, stimulus within larvae, Greenhouse–Geisser
 corrected) for responses across stimulus levels.
@@ -109,6 +110,10 @@ The archive extracts to `DATA/`, the folder passed to `run_all.py`:
 
 ```
 DATA/
+├── Behavior_prey/                                  Figure 4A-D (15-16 chambers of 5 larvae per condition)
+│   └── processed_videos/
+│       └── prey_counts.csv                         rotifer count per frame (30 Hz), one column per chamber:
+│                                                   <date>_<nn>_{WT,MeCP2}_{2lux,30lux}_8dpf_*.avi
 ├── Spontaneous/                                    Figure 1 (9 WT, 10 MeCP2 larvae)
 │   ├── WT/
 │   │   └── <date>_nacre_5dpf_<n>_reg_smooth_CELL_DATA.mat     deltaFoF, raster, movements, orig_position
@@ -128,7 +133,7 @@ DATA/
 │   │   └── <date>_GCaMP5_6dpf_<nn>_1-95Hz_reg_ARTIFACTS.mat   not used by the code
 │   └── MeCP2/
 │       └── <date>_GCaMP5_<n>dpf_MeCP2_null_<nn>_1-95Hz{.mat, _reg_ALL_CELLS.mat, ...}
-└── MECP2_VR_Behavior/                              Figure 4 (40 mecp2, 38 wild-type larvae)
+└── MECP2_VR_Behavior/                              Figure 4E (40 mecp2, 38 wild-type larvae)
     ├── mecp2/
     │   ├── bouts.csv                               one row per bout, all larvae
     │   └── qc.csv                                  larvae excluded by quality control
