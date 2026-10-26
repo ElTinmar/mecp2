@@ -1,0 +1,177 @@
+Cells projected onto a midline endpoint (excluded from F): 36078 of 520165 (6.9%)
+
+Plane orientation check (correlation with the other larvae):
+    larva 1: as stored r=-0.78, flipped r=0.30 -> flipped
+    larva 2: as stored r=-0.79, flipped r=0.56 -> flipped
+    larva 3: as stored r=-0.80, flipped r=0.47 -> flipped
+ 
+WT: 8 larvae, MeCP2: 8 larvae
+    larva    genotype    vglut2a    gad1b    dapi 
+    _____    ________    _______    _____    _____
+
+      1      "wt"         4640      5008     20933
+      2      "wt"         7683      5928     17437
+      3      "wt"         4984      5492     16966
+      4      "wt"         6813      5223     21446
+      5      "wt"         6711      4900     23758
+      6      "wt"         6295      5306     23915
+      7      "wt"         6020      4591     22104
+      8      "wt"         6270      6639     18623
+      9      "mecp2"      8259      4949     32713
+     10      "mecp2"      8131      6105     30084
+     11      "mecp2"      6364      4960     21674
+     12      "mecp2"      5330      4470     21253
+     13      "mecp2"      4316      3458     18767
+     14      "mecp2"      6727      4802     15418
+     15      "mecp2"      6026      5367     21933
+     16      "mecp2"      3603      4842     12929
+
+Panel A: /home/martin/Code/mecp2/data/DATA/Immunostaining/WT/Fish 7-wt-6dpf_060318.tif, plane 33
+
+Number of cells per larva (x10^3, mean +- SEM)
+vglut2a  WT: 6.18 +- 0.35, MeCP2: 6.09 +- 0.59
+gad1b  WT: 5.39 +- 0.23, MeCP2: 4.87 +- 0.27
+genotype, bilateral ranksum test, Holm-corrected: vglut2a 1, gad1b 0.321
+
+GLME: count ~ type*genotype + (1|larva), Poisson, log link, dispersion estimated
+
+    FIXED EFFECT COEFFICIENTS: DFMETHOD = 'RESIDUAL', ALPHA = 0.05
+
+    Name                                 Estimate     SE          tStat       DF
+    {'(Intercept)'              }           8.7286    0.059577      146.51    28
+    {'genotype_mecp2'           }        -0.013446    0.084539    -0.15905    28
+    {'type_gad1b'               }         -0.13705    0.087293       -1.57    28
+    {'genotype_mecp2:type_gad1b'}         -0.08742     0.12538    -0.69723    28
+
+
+    pValue        Lower       Upper  
+    6.0639e-42      8.6066     8.8506
+       0.87477    -0.18662    0.15972
+       0.12764    -0.31587    0.04176
+       0.49141    -0.34425    0.16941
+
+    genotype, vglut2a: F(1,28)=0.03, p=0.875
+    genotype, gad1b: F(1,28)=1.19, p=0.285
+    gad1b vs vglut2a, wild type: F(1,28)=2.46, p=0.128
+    gad1b vs vglut2a, mecp2-mutant: F(1,28)=6.22, p=0.0188
+ 
+Excitation / inhibition ratio (vglut2a / gad1b, mean +- SEM)
+WT: 1.156 +- 0.070, MeCP2: 1.249 +- 0.093
+    (gad1b / vglut2a: WT 0.889 +- 0.057, MeCP2 0.840 +- 0.078)
+bilateral ranksum test: 0.574
+Gamma GLM (ratio ~ genotype): p=0.431
+ 
+Dorso-ventral distribution (D)
+vglut2a, cells per bin (10 bins), mixed-design ANOVA (within effects GG-corrected):
+    MeCP2/WT: 0.678
+    Bin: 1.46e-05
+    Interaction (distribution shape): 0.227
+Fish in ANOVA: 8 WT, 8 MeCP2; Greenhouse-Geisser epsilon: 0.2282
+                          SumSq       DF       MeanSq         F         pValue       pValueGG      pValueHF      pValueLB      pEta2        gEta2  
+                        __________    ___    __________    _______    __________    __________    __________    __________    ________    _________
+
+    (Intercept)         5.4089e+07      1    5.4089e+07     230.81    4.2997e-10    4.2997e-10    4.2997e-10    4.2997e-10         NaN          NaN
+    genotype                 42185      1         42185    0.18001       0.67781       0.67781       0.67781       0.67781    0.012695    0.0030945
+    Error               3.2809e+06     14    2.3435e+05                                                                            NaN          NaN
+    (Intercept):stim    1.2174e+07      9    1.3527e+06     16.533    1.0938e-17    1.4575e-05    3.3681e-06     0.0011564     0.54147      0.47252
+    genotype:stim       1.1492e+06      9    1.2769e+05     1.5607       0.13414       0.22704        0.2221       0.23205      0.1003      0.07797
+    Error(stim)         1.0309e+07    126         81821                                                                            NaN          NaN
+
+Post-hoc: bilateral ranksum test per bin (edges [0 15 30 45 60 75 90 105 120 135 150]):
+  Columns 1 through 7
+
+    0.1049    0.4418    0.5737    0.5737    0.1049    0.3282    0.5737
+
+  Columns 8 through 10
+
+    0.3282    0.1605    0.1605
+
+Holm-corrected:
+     1     1     1     1     1     1     1     1     1     1
+
+ 
+gad1b, cells per bin (10 bins), mixed-design ANOVA (within effects GG-corrected):
+    MeCP2/WT: 0.689
+    Bin: 3.78e-05
+    Interaction (distribution shape): 0.453
+Fish in ANOVA: 8 WT, 8 MeCP2; Greenhouse-Geisser epsilon: 0.2164
+                          SumSq       DF       MeanSq         F         pValue       pValueGG     pValueHF     pValueLB      pEta2        gEta2  
+                        __________    ___    __________    _______    __________    __________    _________    _________    ________    _________
+
+    (Intercept)         3.7946e+07      1    3.7946e+07     489.34     2.731e-12     2.731e-12    2.731e-12    2.731e-12         NaN          NaN
+    genotype                 12942      1         12942     0.1669       0.68906       0.68906      0.68906      0.68906    0.011781    0.0016469
+    Error               1.0856e+06     14         77545                                                                          NaN          NaN
+    (Intercept):stim    7.4348e+06      9    8.2609e+05     15.398    1.0611e-16    3.7811e-05    1.143e-05    0.0015277     0.52378      0.48657
+    genotype:stim       3.8979e+05      9         43310    0.80731       0.61029       0.45346      0.46842      0.38411    0.054521     0.047333
+    Error(stim)         6.7596e+06    126         53648                                                                          NaN          NaN
+
+Post-hoc: bilateral ranksum test per bin (edges [0 15 30 45 60 75 90 105 120 135 150]):
+  Columns 1 through 7
+
+    0.7209    0.3282    0.5054    0.8785    0.6454    0.3823    0.8785
+
+  Columns 8 through 10
+
+    1.0000    0.4418    0.1694
+
+Holm-corrected:
+     1     1     1     1     1     1     1     1     1     1
+
+ 
+Latero-medial distribution (F), along the tectal midline
+vglut2a, cells per bin (10 bins), mixed-design ANOVA (within effects GG-corrected):
+    MeCP2/WT: 0.622
+    Bin: 0.0353
+    Interaction (distribution shape): 0.632
+Fish in ANOVA: 8 WT, 8 MeCP2; Greenhouse-Geisser epsilon: 0.2116
+                          SumSq       DF       MeanSq         F         pValue       pValueGG      pValueHF      pValueLB      pEta2        gEta2  
+                        __________    ___    __________    _______    __________    __________    __________    __________    ________    _________
+
+    (Intercept)         5.3141e+07      1    5.3141e+07      285.6    1.0407e-10    1.0407e-10    1.0407e-10    1.0407e-10         NaN          NaN
+    genotype                 47369      1         47369    0.25458       0.62172       0.62172       0.62172       0.62172    0.017859    0.0016203
+    Error                2.605e+06     14    1.8607e+05                                                                            NaN          NaN
+    (Intercept):stim    7.3455e+06      9    8.1617e+05     3.8687    0.00023586      0.035266      0.028364      0.069336     0.21651      0.20107
+    genotype:stim       8.5732e+05      9         95258    0.45153       0.90405       0.63202       0.65891       0.51254    0.031245     0.028536
+    Error(stim)         2.6582e+07    126    2.1097e+05                                                                            NaN          NaN
+
+Post-hoc: bilateral ranksum test per bin (edges [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1]):
+  Columns 1 through 7
+
+    0.2903    0.3978    0.5248    0.8785    0.2786    0.1949    0.7209
+
+  Columns 8 through 10
+
+    0.7209    0.8785    0.5526
+
+Holm-corrected:
+     1     1     1     1     1     1     1     1     1     1
+
+ 
+gad1b, cells per bin (10 bins), mixed-design ANOVA (within effects GG-corrected):
+    MeCP2/WT: 0.581
+    Bin: 0.0147
+    Interaction (distribution shape): 0.72
+Fish in ANOVA: 8 WT, 8 MeCP2; Greenhouse-Geisser epsilon: 0.2343
+                          SumSq       DF       MeanSq         F         pValue       pValueGG      pValueHF      pValueLB      pEta2        gEta2   
+                        __________    ___    __________    _______    __________    __________    __________    __________    ________    __________
+
+    (Intercept)         3.7047e+07      1    3.7047e+07     1078.7    1.1938e-14    1.1938e-14    1.1938e-14    1.1938e-14         NaN           NaN
+    genotype                 10956      1         10956    0.31902       0.58114       0.58114       0.58114       0.58114    0.022279    0.00066858
+    Error               4.8081e+05     14         34344                                                                            NaN           NaN
+    (Intercept):stim    5.4188e+06      9    6.0209e+05     4.7726    1.7754e-05      0.014719     0.0099533      0.046417     0.25423       0.24863
+    genotype:stim        3.958e+05      9         43978     0.3486       0.95654       0.71962       0.75362       0.56432    0.024295      0.023599
+    Error(stim)         1.5895e+07    126    1.2615e+05                                                                            NaN           NaN
+
+Post-hoc: bilateral ranksum test per bin (edges [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1]):
+  Columns 1 through 7
+
+    0.1671    0.3417    0.4584    0.9591    0.4418    0.5737    0.7209
+
+  Columns 8 through 10
+
+    0.7209    0.8196    0.8236
+
+Holm-corrected:
+     1     1     1     1     1     1     1     1     1     1
+
+ 

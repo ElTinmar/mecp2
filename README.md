@@ -7,6 +7,8 @@ The code compares wild-type and *mecp2*-mutant zebrafish larvae:
 
 - **Figure 1:** spontaneous activity in the optic tectum (two-photon calcium imaging): event
   frequency and duration, pairwise correlations against a shuffled null model.
+- **Supplementary Figure 1:** numbers, ratio and spatial distributions of glutamatergic
+  (*vglut2a*) and GABAergic (*gad1b*) tectal neurons from immunostaining.
 - **Figure 2:** tectal responses to looming stimuli of increasing contrast, and decoding of
   contrast from population activity.
 - **Figure 3:** tectal responses to small prey-like spots at four azimuths, and decoding of
@@ -15,7 +17,7 @@ The code compares wild-type and *mecp2*-mutant zebrafish larvae:
   intensity in a closed-loop virtual reality assay, and sensitivity (EC50) from bootstrapped
   sigmoid fits.
 
-Figures 1–3 are produced in MATLAB, Figure 4 in Python. Statistics treat the larva as the
+Figures 1–3 and S1 are produced in MATLAB, Figure 4 in Python. Statistics treat the larva as the
 independent unit: per-larva values are compared with Wilcoxon rank-sum tests, or with a
 mixed-design ANOVA (genotype between larvae, stimulus within larvae, Greenhouse–Geisser
 corrected) for responses across stimulus levels.
@@ -57,6 +59,7 @@ Use `--matlab /path/to/matlab` if MATLAB is not on your `PATH`.
 | 2 | `fig2.pdf`, `fig2.svg` | `table_F2.txt` | `fig2.mat`, `SupMovie_F2.avi` |
 | 3 | `fig3.pdf`, `fig3.svg`, `figS2.pdf`, `figS2.svg` | `table_F3.txt` | `fig3.mat`, `SupMovie_F3.avi` |
 | 4 | `fig4.pdf`, `fig4.svg`, `figS2_F4.pdf`, `figS2_F4.svg` | `table_F4.txt` | `fig4.npz` |
+| S1 | `figS1.pdf`, `figS1.svg` | `table_S1.txt` | `figS1.mat` |
 
 The tables contain every statistic reported in the paper (cell counts, test statistics,
 p-values, effect sizes).
@@ -128,6 +131,9 @@ DATA/
 │   │   └── <date>_GCaMP5_6dpf_<nn>_1-95Hz_reg_ARTIFACTS.mat   not used by the code
 │   └── MeCP2/
 │       └── <date>_GCaMP5_<n>dpf_MeCP2_null_<nn>_1-95Hz{.mat, _reg_ALL_CELLS.mat, ...}
+├── Immunostaining/                                 Supplementary Figure 1 (8 WT, 8 MeCP2 larvae)
+│   └── ALL.mat                                     segmented cells, one struct element per larva:
+│                                                   Animal, Treatment, Side, Color, Plane, TectalLine, ...
 └── MECP2_VR_Behavior/                              Figure 4 (40 mecp2, 38 wild-type larvae)
     ├── mecp2/
     │   ├── bouts.csv                               one row per bout, all larvae
@@ -158,6 +164,7 @@ mecp2/
 ├── Common/                 shared MATLAB code: bootstrap, decoder, statistics, plotting helpers
 ├── Figure1/ … Figure3/     F<n>.m (analysis), plot_F<n>.m (layout), panel_*_F<n>.m (panels),
 │                           extra/ (exploratory scripts, not used for the paper)
+├── FigureS1/               FS1.m (analysis), plot_FS1.m (layout), panel_* (panels)
 └── Figure4/                F4.py (analysis), plot_F4.py / plot_SupF4.py (layout),
                             panel_* / SupPanel_* (panels), mixed_anova.py, style_F4.py
 ```

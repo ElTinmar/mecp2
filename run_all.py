@@ -1,4 +1,4 @@
-"""Generate all figures: MATLAB (Figures 1-3) and Python (Figure 4), in parallel.
+"""Generate all figures: MATLAB (Figures 1-3, S1) and Python (Figure 4), in parallel.
 
 usage: python run_all.py <datadir> [--figures F1 F3] [--jobs 2] [--out results] [--matlab /path/to/matlab]
 
@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent
-FIGURES = ['F1', 'F2', 'F3', 'F4']
+FIGURES = ['F1', 'F2', 'F3', 'F4', 'FS1']
 
 
 def command(figure: str, datadir: Path, matlab: str) -> list[str]:
@@ -33,7 +33,7 @@ def run(figure: str, datadir: Path, out: Path, matlab: str) -> tuple[str, int, f
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('datadir', type=Path, help='folder containing Spontaneous/, Stimulation_*/ and MECP2_VR_Behavior/')
+    parser.add_argument('datadir', type=Path, help='folder containing Spontaneous/, Stimulation_*/, MECP2_VR_Behavior/ and Immunostaining/')
     parser.add_argument('--figures', nargs='+', choices=FIGURES, default=FIGURES)
     parser.add_argument('--jobs', type=int, default=len(FIGURES),
                         help='figures run at once; lower it if memory or MATLAB licenses are limited')
