@@ -15,7 +15,7 @@ from pathlib import Path
 
 ARCHIVE = 'mecp2_paper_data.zip'
 SHA256 = "0e5c2ecafa4e38e247b5bf907e4d13f3177b19c59ec250e04ee65127d0a6d774" 
-NEXTCLOUD_SHARE = 'https://neuro.files.academiccloud.de/s/8g79dZ8TQCrEGPy'
+NEXTCLOUD_SHARE = 'https://neuro.files.academiccloud.de/s/g29FfykzfFse2fL'
 ZENODO_RECORD = None  # TODO: record id once published, e.g. '1234567'
 EXPECTED = ['Spontaneous', 'Stimulation_Contrast', 'Stimulation_Azimuth', 'MECP2_VR_Behavior']
 
