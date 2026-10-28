@@ -12,9 +12,9 @@ def plot_F4(rotifers: dict[str, np.ndarray], ci: dict[str, np.ndarray], found: d
             freq: dict[str, dict[str, np.ndarray]]) -> Figure:
     f = a4_figure()
     axs = [axes(f, panel(f, pos, letter), (0.2, 0.18, 0.75, 0.72))
-           for letter, pos in zip('ABCD', [(0, 0.75, 0.5, 0.25), (0.5, 0.75, 0.5, 0.25),
+           for letter, pos in zip('abcd', [(0, 0.75, 0.5, 0.25), (0.5, 0.75, 0.5, 0.25),
                                            (0, 0.5, 0.5, 0.25), (0.5, 0.5, 0.5, 0.25)])]
     panel_AD_F4(rotifers, ci, found, axs)
-    pE = panel(f, (0, 0.27, 1, 0.22), 'E')
+    pE = panel(f, (0, 0.27, 1, 0.22), 'e')
     panel_E_F4(freq, axes(f, pE, (0.08, 0.15, 0.9, 0.78)))
     return f
