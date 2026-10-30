@@ -52,12 +52,6 @@ p-values:
 Holm-corrected: 
     0.0505    0.0157    0.0493    0.0157    0.0493
 
-Angular error, bilateral ranksum test across fish:
-    0.0907    0.3110    0.0712    0.0907    0.0907
-
-Holm-corrected: 
-    0.3629    0.3629    0.3558    0.3629    0.3629
-
 # of responsive cells at least one stim type: 
 WT: ------------------------------------
 7 fish, 165.1429 +- 29.5421 cells per fish 
