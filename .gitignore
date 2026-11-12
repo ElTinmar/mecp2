@@ -2,7 +2,5 @@
 *.avi
 *.pyc
 data/
-results/
 *.log
 *.npz
-data/
