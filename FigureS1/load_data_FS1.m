@@ -1,45 +1,48 @@
-function cells = load_data_FS1(datafile)
-%%% cells = load_data_FS1(datafile)
-% one row per segmented cell: larva, genotype, side, type, plane, tectalLine.
-% ALL.mat holds a struct array ALL with one element per larva.
+function cells = load_data_FS1(datadir)
+%%% cells = load_data_FS1(datadir)
+% one row per segmented cell, from the <side>_VerTodo_Fish <n>-<genotype>-*.mat files of Segment_Immuno.m.
+% VerTodo columns used: 7 position along the tectal midline (0-1, rostro-caudal), 8 plane,
+% 13 signed distance to the midline (px, latero-medial), 14 cell type (1 vglut2a, 2 gad1b, 3 DAPI only).
 
-    PLANE_MAX = 86;     % last imaging plane
-    FLIPPED = [1 2 3];  % wild-type larvae imaged bottom-up
+    PLANE_MAX = 86;                 % last imaging plane
+    DIST_MAX = 110;                 % px, |distance to the midline| mapped onto the latero-medial axis [0 1]
+    FLIPPED = ["wt1","wt2","wt3"];  % larvae imaged bottom-up
+    TYPES = ["vglut2a","gad1b","dapi"];
 
-    S = load(datafile,'ALL');
-    assert(isfield(S,'ALL'),'no variable ALL in %s',datafile);
-    TYPES = ["vglut2a","gad1b","dapi"];  % Color codes 1, 2, 3
-
-    num = @(x) str2double(string(x(:)));  % fields may be stored as numbers or text
-    parts = cell(numel(S.ALL),1);
-    for k = 1:numel(S.ALL)
-        s = S.ALL(k);
-        color = num(s.Color);
-        n = numel(color);
-        assert(all(ismember(color,1:3)),'larva %d: Color codes must be 1-3',k);
-        side = string(s.Side(:));
-        if isscalar(side), side = repmat(side,n,1); end
-        parts{k} = table(...
-            repmat(str2double(string(s.Animal(1))),n,1),...
-            repmat(lower(string(s.Treatment(1))),n,1),...
-            side,...
-            TYPES(color)',...
-            num(s.Plane),...
-            num(s.TectalLine),...
-            'VariableNames',{'larva','genotype','side','type','plane','tectalLine'});
+    files = dir(fullfile(datadir,'*_VerTodo_*.mat'));
+    assert(~isempty(files),'no VerTodo files in %s',datadir);
+    parts = cell(numel(files),1);
+    for k = 1:numel(files)
+        tok = regexp(files(k).name,'^(Left|Rigth)_VerTodo_Fish (\d+)-(\w+)-','tokens','once');
+        assert(numel(tok) == 3,'unexpected file name: %s',files(k).name);
+        S = load(fullfile(datadir,files(k).name),'VerTodo');
+        V = S.VerTodo;
+        assert(all(ismember(V(:,14),1:3)),'%s: cell types must be 1-3',files(k).name);
+        n = size(V,1);
+        genotype = lower(string(tok{3}));
+        parts{k} = table(repmat(genotype + tok{2},n,1),repmat(genotype,n,1),repmat(string(tok{1}),n,1),...
+            TYPES(V(:,14))',V(:,8),V(:,7),V(:,13),...
+            'VariableNames',{'larva','genotype','side','type','plane','rostroCaudal','lateroMedial'});
     end
     cells = vertcat(parts{:});
     assert(all(ismember(cells.genotype,["wt","mecp2"])),'unexpected genotype labels');
 
-    % both tectal hemispheres on one latero-medial axis (position along the tectal midline)
-    right = ismember(cells.side,["Right","Rigth"]);
-    cells.tectalLine(right) = 1 - cells.tectalLine(right);
+    % rostro-caudal: position along the tectal midline, both hemispheres in the same direction
+    right = cells.side == "Rigth";
+    cells.rostroCaudal(right) = 1 - cells.rostroCaudal(right);
 
     % cells beyond the ends of the midline are projected onto its endpoint: no valid position
-    ends = cells.tectalLine == 0 | cells.tectalLine == 1;
-    fprintf('Cells projected onto a midline endpoint (excluded from F): %d of %d (%.1f%%)\n\n',...
+    ends = cells.rostroCaudal == 0 | cells.rostroCaudal == 1;
+    fprintf('Cells projected onto a midline endpoint (excluded from E): %d of %d (%.1f%%)\n',...
         sum(ends),height(cells),100*mean(ends));
-    cells.tectalLine(ends) = NaN;
+    cells.rostroCaudal(ends) = NaN;
+
+    % latero-medial: signed distance to the midline, [-DIST_MAX DIST_MAX] px mapped onto [0 1]
+    far = abs(cells.lateroMedial) > DIST_MAX;
+    fprintf('Cells farther than %d px from the midline (excluded from F): %d (%.1f%%)\n\n',...
+        DIST_MAX,sum(far),100*mean(far));
+    cells.lateroMedial = (cells.lateroMedial + DIST_MAX)/(2*DIST_MAX);
+    cells.lateroMedial(far) = NaN;
 
     % larvae imaged bottom-up: flip planes if that matches the other larvae better
     edges = 0:PLANE_MAX+1;
@@ -47,11 +50,11 @@ function cells = load_data_FS1(datafile)
     ref = profile(cells.plane(~ismember(cells.larva,FLIPPED)));
     ACTION = ["kept","flipped"];
     disp('Plane orientation check (correlation with the other larvae):')
-    for a = FLIPPED
+    for a = FLIPPED(ismember(FLIPPED,cells.larva))
         i = cells.larva == a;
         r = [corr(profile(cells.plane(i)),ref), corr(profile(PLANE_MAX - cells.plane(i)),ref)];
         if r(2) > r(1), cells.plane(i) = PLANE_MAX - cells.plane(i); end
-        fprintf('    larva %d: as stored r=%.2f, flipped r=%.2f -> %s\n',a,r,ACTION((r(2) > r(1)) + 1));
+        fprintf('    %s: as stored r=%.2f, flipped r=%.2f -> %s\n',a,r,ACTION((r(2) > r(1)) + 1));
     end
     disp(' ')
 end

@@ -58,18 +58,20 @@ function panel_B_FS1(counts,ax)
     end
     top = max(cellfun(@max,Y),[],'all');
     xlim([0.3 5.2])
-    ylim([0 1.6*top])
+    ylim([0 1.75*top])
     bracket(x(1,:),1.06*top,p_geno(1));
     bracket(x(2,:),1.06*top,p_geno(2));
-    bracket(x(:,1)',1.24*top,p_glme(3));
-    bracket(x(:,2)',1.42*top,p_glme(4));
+    bracket(x(:,1)',1.28*top,p_glme(3));
+    bracket(x(:,2)',1.52*top,p_glme(4));
     ax.XTick = mean(x,2);
     ax.XTickLabel = {'{\it{}vglut2a}','{\it{}gad1b}'};
     ylabel('Cell number (\times10^3)')
 
     function bracket(xx,y,p)
         plot(xx([1 1 2 2]),y - [0.02 0 0 0.02]*diff(ylim),'k','LineWidth',0.75);
-        text(mean(xx),y,stars(p),'HorizontalAlignment','center','VerticalAlignment','bottom','FontSize',8);
+        txt = stars(p);
+        fs = 8 + 4*~strcmp(txt,'ns');  % stars 12 pt, ns 8 pt, as in barplot_ranksum
+        text(mean(xx),y,txt,'HorizontalAlignment','center','VerticalAlignment','bottom','FontSize',fs);
     end
 end
 

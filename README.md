@@ -131,9 +131,13 @@ DATA/
 │   │   └── <date>_GCaMP5_6dpf_<nn>_1-95Hz_reg_ARTIFACTS.mat   not used by the code
 │   └── MeCP2/
 │       └── <date>_GCaMP5_<n>dpf_MeCP2_null_<nn>_1-95Hz{.mat, _reg_ALL_CELLS.mat, ...}
-├── Immunostaining/                                 Supplementary Figure 1 (8 WT, 8 MeCP2 larvae)
-│   └── ALL.mat                                     segmented cells, one struct element per larva:
-│                                                   Animal, Treatment, Side, Color, Plane, TectalLine, ...
+├── Immunostaining/                                 Supplementary Figure 1 (7 WT, 8 MeCP2 larvae)
+│   ├── Normalized_vGlu1.1-Gad0.7-DAPI1.1/          segmented cells, one file per larva and tectal hemisphere
+│   │   ├── {Left,Rigth}_VerTodo_Fish <n>-<wt|MeCP2>-6dpf_<date>.mat  VerTodo: one row per cell
+│   │   ├── {Left,Rigth}_{Mask_Area,Table}_...      not used by the code
+│   │   └── out/                                    WT larva 1, excluded (not read by the code)
+│   ├── WT/                                         confocal stacks: Fish <n>-wt-6dpf_<date>.tif
+│   └── MECP2/                                      confocal stacks: Fish <n>-MeCP2-6dpf_<date>.tif
 └── MECP2_VR_Behavior/                              Figure 4 (40 mecp2, 38 wild-type larvae)
     ├── mecp2/
     │   ├── bouts.csv                               one row per bout, all larvae
@@ -147,6 +151,8 @@ To use your own data, keep the same folder and file name patterns:
 
 - Files are searched recursively, so subfolders are allowed. The genotype is taken from the
   path, which must contain `WT` or `MeCP2`.
+- In Supplementary Figure 1, genotype, larva and hemisphere are taken from the file name,
+  and subfolders are not read.
 - In Figures 2 and 3, cell data and stimulation files are paired by sorted file name, so each
   larva's files must sort in the same order.
 - `bouts.csv` columns used: `file`, `stim`, `category`, `proba`, `sign`, `trial_time`,
