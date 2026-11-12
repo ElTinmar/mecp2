@@ -1,6 +1,6 @@
 *.mat
 *.avi
 *.pyc
+data/
 *.log
 *.npz
-data/

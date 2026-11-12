@@ -17,7 +17,7 @@ ARCHIVE = 'mecp2_paper_data.zip'
 SHA256 = "13134a5504e54b1f6a617c1797a839cfeb772b6202ac23b00b735fcede3b4935" 
 NEXTCLOUD_SHARE = 'https://neuro.files.academiccloud.de/s/g29FfykzfFse2fL'
 ZENODO_RECORD = None  # TODO: record id once published, e.g. '1234567'
-EXPECTED = ['Spontaneous', 'Stimulation_Contrast', 'Stimulation_Azimuth', 'MECP2_VR_Behavior']
+EXPECTED = ['Spontaneous', 'Stimulation_Contrast', 'Stimulation_Azimuth', 'MECP2_VR_Behavior', 'Immunostaining']
 
 
 def url_for(source: str) -> str:
