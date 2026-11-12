@@ -12,7 +12,7 @@ The code compares wild-type and *mecp2*-mutant zebrafish larvae:
 - **Figure 2:** tectal responses to looming stimuli of increasing contrast, and decoding of
   contrast from population activity.
 - **Figure 3:** tectal responses to small prey-like spots at four azimuths, and decoding of
-  azimuth. Supplementary figure: example responses and decoding error.
+  azimuth.
 - **Figure 4:** rotifer consumption by groups of 5 larvae at 2 and 30 lux (A–D, cluster-based
   permutation tests), and J-turns towards virtual prey of increasing UV intensity in a
   closed-loop virtual reality assay (E). **Supplementary Figure 2:** sensitivity (EC50) from
@@ -58,7 +58,7 @@ Use `--matlab /path/to/matlab` if MATLAB is not on your `PATH`.
 | --- | --- | --- | --- |
 | 1 | `fig1.pdf`, `fig1.svg` | `table_F1.txt` | `fig1.mat` |
 | 2 | `fig2.pdf`, `fig2.svg` | `table_F2.txt` | `fig2.mat`, `SupMovie_F2.avi` |
-| 3 | `fig3.pdf`, `fig3.svg`, `figS2.pdf`, `figS2.svg` | `table_F3.txt` | `fig3.mat`, `SupMovie_F3.avi` |
+| 3 | `fig3.pdf`, `fig3.svg` | `table_F3.txt` | `fig3.mat`, `SupMovie_F3.avi` |
 | 4 | `fig4.pdf`, `fig4.svg`, `figS2_F4.pdf`, `figS2_F4.svg` | `table_F4.txt` | `fig4.npz` |
 | S1 | `figS1.pdf`, `figS1.svg` | `table_S1.txt` | `figS1.mat` |
 
@@ -139,8 +139,7 @@ DATA/
 ├── Immunostaining/                                 Supplementary Figure 1 (7 WT, 8 MeCP2 larvae)
 │   ├── Normalized_vGlu1.1-Gad0.7-DAPI1.1/          segmented cells, one file per larva and tectal hemisphere
 │   │   ├── {Left,Rigth}_VerTodo_Fish <n>-<wt|MeCP2>-6dpf_<date>.mat  VerTodo: one row per cell
-│   │   ├── {Left,Rigth}_{Mask_Area,Table}_...      not used by the code
-│   │   └── out/                                    WT larva 1, excluded (not read by the code)
+│   │   └── {Left,Rigth}_{Mask_Area,Table}_...      not used by the code
 │   ├── WT/                                         confocal stacks: Fish <n>-wt-6dpf_<date>.tif
 │   └── MECP2/                                      confocal stacks: Fish <n>-MeCP2-6dpf_<date>.tif
 └── MECP2_VR_Behavior/                              Figure 4 (40 mecp2, 38 wild-type larvae)
